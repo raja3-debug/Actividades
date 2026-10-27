@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingLeft="16dp"
+android:paddingRight="16dp"
+android:orientation="horizontal"
+android:gravity="center">
+    <Button
+        android:id="@+id/Button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BOTÓN SIN PULSAR"
+        android:textColor="#0000FF"
+        android:onClick="pulsado1"
+        android:backgroundTint="@color/white"
+
+        />
+
+
+</LinearLayout>

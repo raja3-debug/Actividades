@@ -4,15 +4,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
+<!-- Pantalla de operaciones -->
+    <TextView
+        android:id="@+id/textoOperacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:gravity="end"
+        android:text="" />
 
-    <!-- Pantalla de la calculadora -->
+    <!--Pantalla de resultado -->
     <TextView
         android:id="@+id/numeros"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:textSize="32sp"
-        android:text=""
-        android:background="#E0E0E0"/>
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        android:gravity="end"
+        android:text="" />
+    <!-- La primera fila de los btones-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,7 +46,7 @@
             android:backgroundTint="#EE0E0E"/>
     </LinearLayout>
 
-    <!-- Fila de botones 1 (Ejemplo: 7, 8, 9, Suma) -->
+    <!-- La segunda fila -->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -85,7 +94,7 @@
             android:backgroundTint="#EE0E0E"/>
     </LinearLayout>
 
-    <!-- Puedes seguir añadiendo más filas de LinearLayout horizontal para el resto de números y botones -->
+    <!-- La tercera fila -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -131,7 +140,7 @@
             android:textSize="20sp"
             android:backgroundTint="#EE0E0E"/>
     </LinearLayout>
-<!-- botones 123-->
+<!-- la penultima fila -->
  <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -177,7 +186,7 @@
             android:textSize="20sp"
             android:backgroundTint="#EE0E0E"/>
     </LinearLayout>
-    <!--Ultima fil-->
+    <!--Ultima fila-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

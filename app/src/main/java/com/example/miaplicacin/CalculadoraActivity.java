@@ -1,17 +1,12 @@
 package com.example.miaplicacin;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.security.cert.Extension;
-
 public class CalculadoraActivity extends AppCompatActivity implements View.OnClickListener {
-    TextView textoPantalla;
+    TextView textoPantalla, textoOperacion;
     View view;
     int numero1 = 0;
     String operacion = "";
@@ -21,7 +16,8 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculadora);
-        textoPantalla=findViewById(R.id.numeros);
+        textoPantalla = findViewById(R.id.numeros);
+        textoOperacion = findViewById(R.id.textoOperacion);
         butonPunto=findViewById(R.id.btnPunto);
         buton1=findViewById(R.id.btn1);
         buton2=findViewById(R.id.btn2);
@@ -61,11 +57,10 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
     }
     @Override
     public void onClick(View v) {
-
         int id = v.getId();
         if (id == R.id.btn0) {
             cadenaOperacion+="0";
-            textoPantalla.setText(cadenaOperacion);
+            textoOperacion.setText(cadenaOperacion);
         } else if (id == R.id.btn1) {
             cadenaOperacion+="1";
             textoPantalla.setText(cadenaOperacion);
@@ -87,68 +82,61 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
         } else if (id == R.id.btn7) {
             cadenaOperacion+="7";
             textoPantalla.setText(cadenaOperacion);
-
         } else if (id == R.id.btn8) {
             cadenaOperacion+="8";
             textoPantalla.setText(cadenaOperacion);
         } else if (id == R.id.btn9) {
             cadenaOperacion+="9";
             textoPantalla.setText(cadenaOperacion);
-
         } else if (id==R.id.btnActualizar) {
          textoPantalla.setText("");
+         textoOperacion.setText("");
+         cadenaOperacion="";
          numero1=0;
          operacion="";
-         
-     } else if (id==R.id.btnSuma) {
+        }else if (id==R.id.btnSuma) {
          numero1=Integer.parseInt(cadenaOperacion);
          operacion="+";
-         cadenaOperacion+="+";
-         textoPantalla.setText(cadenaOperacion);
+       textoOperacion.setText(cadenaOperacion+operacion);
+       cadenaOperacion="";
+         textoPantalla.setText("");
      } else if (id==R.id.btnResta) {
          numero1=Integer.parseInt(cadenaOperacion);
          operacion="-";
-         cadenaOperacion+="-";
-         textoPantalla.setText(cadenaOperacion);
-         
-     } else if (id==R.id.btnMultiplicacion) {
+         textoOperacion.setText(cadenaOperacion+ operacion);
+         cadenaOperacion="";
+         textoPantalla.setText("");
+        } else if (id==R.id.btnMultiplicacion) {
          numero1 = Integer.parseInt(cadenaOperacion);
          operacion = "*";
-         cadenaOperacion+="*";
-         textoPantalla.setText(cadenaOperacion);
-
-     } else if (id==R.id.btnDivision) {
+         textoOperacion.setText(cadenaOperacion+ operacion);
+         cadenaOperacion="";
+         textoPantalla.setText("");
+        } else if (id==R.id.btnDivision) {
       numero1=Integer.parseInt(cadenaOperacion);
       operacion="/";
-      cadenaOperacion+="/";
-      textoPantalla.setText(cadenaOperacion);
-
-     } else if (id==R.id.btnResultado) {
+      textoOperacion.setText(cadenaOperacion+ operacion);
+      cadenaOperacion="";
+      textoPantalla.setText("");
+        } else if (id==R.id.btnResultado) {
          int numero2=Integer.parseInt(textoPantalla.getText().toString());
-         int resultado=0;gi
+         int resultado=0;
          if(operacion.equals("+")){
              resultado=numero1+numero2;
-
          } else if (operacion.equals("-")) {
              resultado=numero1-numero2;
-
          } else if (operacion.equals("*")) {
              resultado=numero1*numero2;
-
          } else if (operacion.equals("/")) {
              if(numero2!=0){
                  resultado=numero1/numero2;
              }else {
                  textoPantalla.setText("Error");
              }
-
          }
+         textoOperacion.setText(numero1+" "+ operacion+" "+ numero2);
+
          textoPantalla.setText(String.valueOf(resultado));
-
-     }
-
-
+        }
     }
-
-
 }
